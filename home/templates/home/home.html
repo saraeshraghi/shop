@@ -2,7 +2,23 @@
 
 {% block content %}
 
-    <div class="card">
+    <div>
         <h1>hello user</h1>
     </div>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-sm-6">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p>{{ product.updated }}</p>
+                        <p>{{ product.price }}</p>
+                        <a href="{{ product.get_absulut_url }}" class="btn btn-primary">ادامه</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}
